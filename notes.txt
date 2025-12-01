@@ -1,0 +1,5 @@
+crossorigin --> to access a different domain ,  
+Cross-Origin Resource Sharing (CORS):
+CORS is a security mechanism implemented in web browsers that controls how web pages on one domain (origin) can request resources from a different domain (cross-origin).
+
+
