@@ -1,0 +1,14 @@
+{
+  "name": "learn_react",
+  "version": "1.0.0",
+  "description": "React Learning",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "amar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  }
+}
