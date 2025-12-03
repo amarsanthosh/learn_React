@@ -4,3 +4,49 @@ CORS is a security mechanism implemented in web browsers that controls
 how web pages on one domain (origin) can request resources from a different domain (cross-origin).
 
 
+Episode 2 : 
+
+npm -> all but not stands for node package manager
+we can add our names too...in its repository....
+
+1. npm init
+
+fill the things if needed
+
+test command -> jest
+
+keywords -> anything like, react, amar etc..,
+
+package.json -> configuration for npm
+
+packages == dependencies
+
+the most importnant package in out project --> bundler
+
+bundlers --> webpack, veet, parcel
+
+parcel : 
+- npm install -D parcel  {-D to install as dev dependency}
+two types of dependecies : 
+    dev dependency
+    normal dependency
+
+parcel is a super power... 
+diff bw ~ and ^ in package manager
+^ -> auto update the minor versions
+~ -> auto update the major versions
+
+
+package-lock.json ==> it stores the exact versions of the packages
+
+
+Transitive dependency ->  our project needs parcel dependency, parcel also needs some other dependency, other dependency needs another dependency......
+
+put the node modules in the .gitignore
+
+package , and package-lock.json need to be in GIT
+
+if we have  package , and package-lock.json we can recreate the node modules....by ->  npm install 
+        
+
+
