@@ -48,5 +48,35 @@ package , and package-lock.json need to be in GIT
 
 if we have  package , and package-lock.json we can recreate the node modules....by ->  npm install 
         
+___________________________________________________________________________________________________
+to build a dev build : 
 
+npx parcel index.html
+
+the parcel-cache and dist are regenerated , so add these in the .git ignore
+
+to make our app compatible for the older browsers , we have something called Browserlist
+
+For that we need to change in package.json 
+add :-
+"browserslist" : [
+    "last 2 versions"
+]
+
+
+
+Browserslist is a npm package
+
+explore the Browserlist dev website...play with it...
+
+
+
+react , bundlers, jsx dos what things??? 
+what are dev build and prod build???
+
+
+___________________________________________________________________________________________________--
+
+
+Episode 3  : laying the foundation 
 
