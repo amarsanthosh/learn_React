@@ -17,7 +17,10 @@ this lala
 // }
 
 const Title = () => (
+    <>
+    {/* {Heading()} */}
     <h1> The TiTle... </h1>
+    </>
 );
 
 
@@ -32,15 +35,6 @@ const Heading = () => (
   </>
 );
 
-
-
-
 const root = ReactDOM.createRoot(document.getElementById("root")); 
 
-
-
-
-console.log(heading);
-
-root.render(heading); 
 root.render(<Heading/>)
