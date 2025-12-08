@@ -1,3 +1,25 @@
-.root {
-    color: blue;
+.header {
+    display: flex;
+    border: 1px solid black;   
+    justify-content: space-between;
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav-items {
+    padding: 0px 20px;
+}
+
+.nav-items > ul {
+    display: flex;
+    font-size: 24px;
+    list-style-type: none;
+
+}
+
+.nav-items > ul > li {
+    padding: 10px;
+    margin: 10px;
 }

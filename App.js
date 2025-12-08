@@ -1,40 +1,51 @@
 import React from "react";
 import ReactDOM from "react-dom/client"; 
 
+/**
+ * Header 
+ *  - logo
+ *  - nav items
+ * Body
+ *  - search
+ *  - restaurant container
+ *      - restsurant card 
+ * Footer 
+ *  - copyright
+ *  - Links
+ *  - Address
+ *  - contact
+ */
 
-//React element
-const heading = <div><h1
- className="root"> 
-This is heading...
-this lala
-</h1></div>
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=fast-food&sf=&txt_keyword=All"/>
+      </div>
+      <div  className="nav-items">
+      <ul>
+        <li>Home</li>
+        <li>About us</li>
+        <li>Contact us</li>
+        <li>Cart</li>
+      </ul>
+    </div>
+    </div>
+  );
+};
 
 
-//React Functional components are  JS function which return JSX or react element ! 
 
-// const Heading = () => {
-//     return <h2> This is a react Component </h2>
-// }
-
-const Title = () => (
-    <>
-    {/* {Heading()} */}
-    <h1> The TiTle... </h1>
-    </>
-);
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header/>
+    </div>
+  );
+};
 
 
-const Heading = () => (
-  <>
-    <h2>{heading}</h2>
-    <Title/>
-    <Title></Title>
-    {Title()} 
-
-    <h2>This is a react Component</h2>
-  </>
-);
 
 const root = ReactDOM.createRoot(document.getElementById("root")); 
 
-root.render(<Heading/>)
+root.render(<AppLayout/>); 
