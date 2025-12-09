@@ -51,3 +51,10 @@
 .search {
     padding: 10px;
 }
+
+.filter-btn {
+    margin: 10px;
+    color: blueviolet;
+    background-color: bisque;
+    cursor: pointer;
+}
