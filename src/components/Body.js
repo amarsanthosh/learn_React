@@ -31,17 +31,12 @@ const Body = () => {
       <div className="filter">
         <button className="filter-btn"
         onClick={()=>{
-            const filteredList = listOfRestaurants.filter((res)=> res.data.avgRating > 4);
-            setListOfRestaurants(filteredList); 
-            console.log(filteredList); 
+            const filteredList = listOfRestaurants.filter((res)=> res.info.avgRating > 4.2);
+            setListOfRestaurants(filteredList);  
         }}
         >Top Restaurants</button>
       </div>
       <div className="res-container">
-        {
-        console.log(listOfRestaurants)
-
-        }
         {
           
         listOfRestaurants.map((restaurant) => (
