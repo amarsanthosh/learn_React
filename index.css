@@ -39,7 +39,7 @@
     margin: 5px;
     padding: 5px;
     width : 200px;
-    height : 300px;
+    height : 400px;
 }
 
 
@@ -70,4 +70,9 @@
     width : 200px;
     height : 300px;   
     background-color: #f0f0f0;
+}
+
+.login {
+    padding: 0 20px;
+    cursor: pointer;
 }
