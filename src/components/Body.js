@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
-
+import Shimmer from "./Shimmer";
 
 const Body = () => {
     // let arr =  useState(resList); 
@@ -18,10 +18,14 @@ const Body = () => {
       const data = await fetch("https://food-wagon-backend.onrender.com/api/restaurants?lat=25.61011402528211&lng=85.116419903934");
       const json = await data.json(); 
 
-      console.log(json.data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants); 
-      const newList = json.data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants; 
-      console.log(newList[0].info.id);
+      // console.log(json.data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants); 
+      const newList = json?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants; 
+      // console.log(newList[0].info.id);
       setListOfRestaurants(newList); 
+    }
+
+    if(listOfRestaurants.length === 0) {
+       return <Shimmer/> 
     }
 
 
