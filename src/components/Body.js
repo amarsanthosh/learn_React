@@ -4,12 +4,9 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-    // let arr =  useState(resList); 
+    
     const [listOfRestaurants,setListOfRestaurants]  =  useState([]);
-    // const [listOfRestaurants,setListOfRestaurants] = arr; 
-    //  const listOfRestaurants = arr[0]; 
-    //  const setListOfRestaurants = arr[1]; 
-
+    const [searchTxt, setSearchTxt] = useState(""); 
     useEffect(()=>{
       fetchData(); 
     }, []); 
@@ -23,17 +20,22 @@ const Body = () => {
       // console.log(newList[0].info.id);
       setListOfRestaurants(newList); 
     }
-
-    if(listOfRestaurants.length === 0) {
-       return <Shimmer/> 
-    }
-
-
   return listOfRestaurants.length === 0 ?  (<Shimmer/>) : 
   (
     <div className="body">
-      <div className="search">Search</div>
+
       <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" value={searchTxt} onChange={(e)=>{
+            setSearchTxt(e.target.value);
+          }}></input>
+          <button className="search-btn" onClick={()=>{
+            const filteredRestaurant = listOfRestaurants.filter(
+              (res)=> res.info.name.toLowerCase().includes(searchTxt.toLowerCase())
+            );
+            setListOfRestaurants(filteredRestaurant); 
+          }}>Search</button>
+        </div>
         <button className="filter-btn"
         onClick={()=>{
             const filteredList = listOfRestaurants.filter((res)=> res.info.avgRating > 4.2);
