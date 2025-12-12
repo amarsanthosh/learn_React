@@ -14,9 +14,9 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <Link to={"/"}><li>Home</li></Link>
-          <Link to={"/about"}><li>About Us</li></Link>
-          <Link to={"/contactus"}><li>Contact Us</li></Link>
+          <li><Link to={"/"}>Home</Link></li>
+          <li><Link to={"/about"}>About Us</Link></li>
+          <li><Link to={"/contactus"}>Contact Us</Link></li>
           <li>Cart</li>
           <button className="login" onClick={()=>{
             btnName === "login" ? setBtnName("logout") : setBtnName("login"); 
