@@ -5,12 +5,13 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Error from "./components/Error";
 import About from "./components/About";
 import Contactus from "./components/Contactus";
+import { Outlet } from "react-router";
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      {<Outlet/>}
     </div>
   );
 };
@@ -19,18 +20,26 @@ const appRouter = createBrowserRouter([
   {
     path : "/",
     element : <AppLayout/>,
-    errorElement : <Error/>
-  },
-  {
+    errorElement : <Error/>,
+    children : [
+      {
+      path : "/",
+      element : <Body/>,
+      errorElement : <Error/>    
+      },
+      {
     path : "/about",
     element : <About/>,
     errorElement : <Error/>
-  },
-  {
+    },
+    {
     path : "/contactus",
     element : <Contactus/>,
     errorElement : <Error/>
-  },
+    },
+
+]
+} 
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
