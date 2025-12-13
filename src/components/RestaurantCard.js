@@ -1,28 +1,22 @@
-import {CDN_URL} from "../utils/constants";
+import { CDN_URL } from "../utils/constants";
+
 const RestaurantCard = (props) => {
   const { resData } = props;
 
-  // destructure 
-  const {
-    cloudinaryImageId,
-    name,
-    avgRating,
-    cuisines,
-    costForTwo,
-  } = resData?.info;
+  // destructure
+  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo } =
+    resData?.info;
 
-  const {
-    deliveryTime
-  } = resData?.info.sla;
+  const { deliveryTime } = resData?.info.sla;
 
   return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }} onClick={()=>{
+      console.log("clicked");
+    }}>
       <img
         className="res-logo"
         alt="res-logo"
-        src={CDN_URL
-+cloudinaryImageId}
-
+        src={CDN_URL + cloudinaryImageId}
       />
       <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
