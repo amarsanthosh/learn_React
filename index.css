@@ -80,3 +80,9 @@
 .filter {
     display: flex;
 }
+
+.user-class {
+    padding: 10px;
+    border: 1px solid black;
+    
+}
