@@ -18,6 +18,7 @@ const Body = () => {
       // console.log(json.data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants); 
       const newList = json?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants; 
       // console.log(newList[0].info.id);
+      console.log(newList); 
       setListOfRestaurants(newList); 
       setFilteredRestaurants(newList); 
     }
