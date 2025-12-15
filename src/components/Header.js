@@ -1,28 +1,26 @@
 import { Link } from "react-router";
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
-import Body from "./Body";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
 const Header = () => {
   const [btnName , setBtnName] = useState("login") ; 
   return (
-    <div className="header">
+    <div className= "flex justify-between bg-pink-200 shadow-lg">
       <div className="logo-container">
         <img
-          className="logo"
+          className= "w-56"
           src= {LOGO_URL}
         />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online status : {useOnlineStatus() ? "✅" : "🔴" }</li>
-          <li><Link to={"/"}>Home</Link></li>
-          <li><Link to={"/grocery"}>Grocery</Link></li>
-          <li><Link to={"/about"}>About Us</Link></li>
-          <li><Link to={"/contactus"}>Contact Us</Link></li>
-          <li>Cart</li>
-          <button className="login" onClick={()=>{
+      <div className="flex items-center">
+        <ul className="flex p-4 m-4">
+          <li className="px-4 text-lg">Online status : {useOnlineStatus() ? "✅" : "🔴" }</li>
+          <li  className="px-4 text-lg "><Link to={"/"}>Home</Link></li>
+          <li className="px-4 text-lg"><Link to={"/grocery"}>Grocery</Link></li>
+          <li className="px-4 text-lg"><Link to={"/about"}>About Us</Link></li>
+          <li className="px-4 text-lg"><Link to={"/contactus"}>Contact Us</Link></li>
+          {/* <li className="p-4 m-4">Cart</li> */}
+          <button className="px-4 text-lg hover:cursor-pointer" onClick={()=>{
             btnName === "login" ? setBtnName("logout") : setBtnName("login"); 
           }}>{btnName}</button>
         </ul>
@@ -30,5 +28,4 @@ const Header = () => {
     </div>
   );
 };
-
 export default Header;
