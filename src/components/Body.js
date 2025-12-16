@@ -1,4 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
+import { withPromotedLable } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
@@ -33,6 +34,8 @@ const Body = () => {
   if (onlineStatus === false) {
     return <h1>Looks like your internet connection Gone da ......</h1>;
   }
+
+  const RestaurantCardPromoted = withPromotedLable(RestaurantCard); 
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -83,7 +86,10 @@ const Body = () => {
             key={restaurant.info.id}
             to={"restaurant/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+
+            {restaurant.info.avgRating < 4.1 ? <RestaurantCard resData={restaurant} /> : <RestaurantCardPromoted resData={restaurant}/> }
+            
+            
           </Link>
         ))}
       </div>
