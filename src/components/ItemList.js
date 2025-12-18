@@ -6,7 +6,7 @@ const ItemList = (props) => {
   console.log(data);
   return (
     <div>
-      <div className="flex m-2 p-2 text-left border-gray-200 border-b-2 justify-between">
+      <div className="flex m-2 p-2 text-left border-gray-200 border-b-2 justify-between ">
         <div className="w-9/12">
           <div className="py-2">
             <span>{data.costForTwo}</span>

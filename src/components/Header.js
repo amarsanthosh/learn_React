@@ -1,9 +1,11 @@
 import { Link } from "react-router";
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Header = () => {
-  const [btnName , setBtnName] = useState("login") ; 
+  const [btnName , setBtnName] = useState("login") ;
+  const data = useContext(UserContext); 
   return (
     <div className= "flex justify-between bg-pink-200 shadow-lg">
       <div className="logo-container">

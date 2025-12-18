@@ -7,8 +7,12 @@ import About from "./components/About";
 import Contactus from "./components/Contactus";
 import { Outlet } from "react-router";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
+import UserContext from "./utils/UserContext";
+
 const AppLayout = () => {
+
+  // const [username,setUsername] = useState();
   return (
     <div className="app">
       <Header />

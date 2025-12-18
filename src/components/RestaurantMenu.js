@@ -1,13 +1,14 @@
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
+
 
 const RestaurantMenu = () => {
   const resInfo = useRestaurantMenu();
 
-  // const { name, cuisines, costForTwoMessage } =
-  //   resInfo?.info;
-
+    
+  const [showIndex,setShowIndex] = useState(null); 
 
   // console.log(resInfo);
   if (resInfo === null ) {
@@ -56,7 +57,12 @@ const RestaurantMenu = () => {
           resInfo.map((resData,index)=>(
             <div key={resData?.info?.id}>
         
-            <RestaurantCategory data={resData?.info}/>
+             <RestaurantCategory 
+                data={resData?.info}
+                showItems = {index===showIndex ? true : false}
+                setShowIndex = {()=>setShowIndex(index)}
+             
+             />
             </div> 
           ))
         }
