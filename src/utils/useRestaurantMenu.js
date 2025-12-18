@@ -12,9 +12,12 @@ const useRestaurantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
+    const data = await fetch(
+      "https://food-wagon-backend.onrender.com/api/restaurants?lat=25.61011402528211&lng=85.116419903934"
+    );
     const json = await data.json();
-    setResInfo(json.data);
+    setResInfo(json.data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants);
   };
 
   return resInfo;
