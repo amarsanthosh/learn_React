@@ -5,7 +5,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 const Header = () => {
   const [btnName , setBtnName] = useState("login") ;
-  const data = useContext(UserContext); 
+  const {loggedInUser} = useContext(UserContext); 
   return (
     <div className= "flex justify-between bg-pink-200 shadow-lg">
       <div className="logo-container">
@@ -25,6 +25,7 @@ const Header = () => {
           <button className="px-4 text-lg hover:cursor-pointer" onClick={()=>{
             btnName === "login" ? setBtnName("logout") : setBtnName("login"); 
           }}>{btnName}</button>
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

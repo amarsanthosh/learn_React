@@ -9,15 +9,27 @@ import { Outlet } from "react-router";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Suspense, useState } from "react";
 import UserContext from "./utils/UserContext";
+import { useEffect } from "react";
 
 const AppLayout = () => {
 
-  // const [username,setUsername] = useState();
+  const [username,setUsername] = useState();
+  //authentication
+  useEffect(() => {
+    // Make an API call and send username and password
+    const data = {
+      name: "Amarsanthosh",
+    };
+    setUsername(data.name);
+  }, []);
+
   return (
+    <UserContext.Provider value={{ loggedInUser: username, setUsername }}> 
     <div className="app">
       <Header />
       {<Outlet/>}
     </div>
+    </UserContext.Provider>
   );
 };
 
