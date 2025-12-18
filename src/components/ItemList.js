@@ -1,5 +1,6 @@
 // import { CDN_URL } from "../utils/constants";
 import { CDN_URL } from "../utils/constants";
+import { useState } from "react";
 const ItemList = (props) => {
   const data = props.data;
   console.log(data);
@@ -10,8 +11,8 @@ const ItemList = (props) => {
           <div className="py-2">
             <span>{data.costForTwo}</span>
           </div>
-          <p className="text-xs">
-            {data.cuisines.join(", ")} | {data.areaName} | avg rating -{" "}
+          <p className="text-s">
+            {data.cuisines.join(", ")} from {data.areaName} | avg rating -{" "}
             {data.avgRatingString} | no.of.customers - {data.totalRatingsString}{" "}
             | locality - {data.locality} | deliverytime {data.sla.slaString} |{" "}
           </p>
@@ -19,9 +20,9 @@ const ItemList = (props) => {
 
         <div className="w-3/12 p-4 ">
           <div className="absolute">
-            <button className="mt-[80%] bg-black text-white p-2 mx-14 rounded-lg shadow-md shadow-green-600">
+        <button className="mt-[80%] bg-black text-white p-2 mx-14 rounded-lg shadow-md shadow-green-600 cursor-pointer hover:bg-green-600" >
               Add +
-            </button>
+            </button> 
           </div>
           <img src={CDN_URL + data.cloudinaryImageId} className="w-full h-40 rounded-lg"></img>
         </div>
