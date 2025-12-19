@@ -21,7 +21,7 @@ const Header = () => {
           <li className="px-4 text-lg"><Link to={"/grocery"}>Grocery</Link></li>
           <li className="px-4 text-lg"><Link to={"/about"}>About Us</Link></li>
           <li className="px-4 text-lg"><Link to={"/contactus"}>Contact Us</Link></li>
-          {/* <li className="p-4 m-4">Cart</li> */}
+          <li className="px-4 text-lg font-bold">Cart</li>
           <button className="px-4 text-lg hover:cursor-pointer" onClick={()=>{
             btnName === "login" ? setBtnName("logout") : setBtnName("login"); 
           }}>{btnName}</button>

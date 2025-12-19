@@ -10,6 +10,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Suspense, useState } from "react";
 import UserContext from "./utils/UserContext";
 import { useEffect } from "react";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const AppLayout = () => {
 
@@ -24,12 +26,14 @@ const AppLayout = () => {
   }, []);
 
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{ loggedInUser: username, setUsername }}> 
     <div className="app">
       <Header />
       {<Outlet/>}
     </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
