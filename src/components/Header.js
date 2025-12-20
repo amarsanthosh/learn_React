@@ -3,9 +3,14 @@ import { LOGO_URL } from "../utils/constants";
 import { useState, useContext } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 const Header = () => {
   const [btnName , setBtnName] = useState("login") ;
-  const {loggedInUser} = useContext(UserContext); 
+  const {loggedInUser} = useContext(UserContext);
+  
+  //subscribing to cart items
+  const cartItems = useSelector((store)=> store.cart.items);
   return (
     <div className= "flex justify-between bg-pink-200 shadow-lg">
       <div className="logo-container">
@@ -21,7 +26,7 @@ const Header = () => {
           <li className="px-4 text-lg"><Link to={"/grocery"}>Grocery</Link></li>
           <li className="px-4 text-lg"><Link to={"/about"}>About Us</Link></li>
           <li className="px-4 text-lg"><Link to={"/contactus"}>Contact Us</Link></li>
-          <li className="px-4 text-lg font-bold">Cart</li>
+          <li className="px-4 text-lg font-bold">Cart ({cartItems.length})</li>
           <button className="px-4 text-lg hover:cursor-pointer" onClick={()=>{
             btnName === "login" ? setBtnName("logout") : setBtnName("login"); 
           }}>{btnName}</button>

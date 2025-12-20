@@ -1,8 +1,15 @@
 // import { CDN_URL } from "../utils/constants";
 import { CDN_URL } from "../utils/constants";
-import { useState } from "react";
+import { addItems } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
+
 const ItemList = (props) => {
   const data = props.data;
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItems(item));
+  };
+
   console.log(data);
   return (
     <div>
@@ -20,11 +27,19 @@ const ItemList = (props) => {
 
         <div className="w-3/12 p-4 ">
           <div className="absolute">
-        <button className="mt-[80%] bg-black text-white p-2 mx-14 rounded-lg shadow-md shadow-green-600 cursor-pointer hover:bg-green-600" >
+            <button
+              className="mt-[80%] bg-black text-white p-2 mx-14 rounded-lg shadow-md shadow-green-600 cursor-pointer hover:bg-green-600"
+              onClick={() => {
+                handleAddItem(data);
+              }}
+            >
               Add +
-            </button> 
+            </button>
           </div>
-          <img src={CDN_URL + data.cloudinaryImageId} className="w-full h-40 rounded-lg"></img>
+          <img
+            src={CDN_URL + data.cloudinaryImageId}
+            className="w-full h-40 rounded-lg"
+          ></img>
         </div>
       </div>
     </div>
