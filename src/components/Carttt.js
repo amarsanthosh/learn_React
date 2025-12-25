@@ -10,7 +10,7 @@ const Carttt =() => {
     <div>
         <h1>Hello</h1> 
         {
-            addedItems.map(id=>(<p>THe ResId : {id}</p>))
+            addedItems.map((id,index)=>(<p key={index}>THe ResId : {id}</p>))
         }
     </div>
     )
