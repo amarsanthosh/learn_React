@@ -2,14 +2,20 @@
 import { CDN_URL } from "../utils/constants";
 import { addItems } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import { useContext, useState } from "react";
+import StoreContext from "../utils/StoreContext";
 
 const ItemList = (props) => {
   const data = props.data;
   const dispatch = useDispatch();
+  // let addedItems = []; 
   const handleAddItem = (item) => {
     dispatch(addItems(item));
   };
-
+  const {setAddedItems} = useContext(StoreContext);
+  const handleAdd = () => {
+      setAddedItems(prev=>[...prev,data.id]); 
+  }; 
   console.log(data);
   return (
     <div>
@@ -31,6 +37,8 @@ const ItemList = (props) => {
               className="mt-[80%] bg-black text-white p-2 mx-14 rounded-lg shadow-md shadow-green-600 cursor-pointer hover:bg-green-600"
               onClick={() => {
                 handleAddItem(data);
+                // addedItems.push(data.id);
+                handleAdd();
               }}
             >
               Add +

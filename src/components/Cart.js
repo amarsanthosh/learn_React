@@ -19,14 +19,14 @@ const Cart = () => {
 
       <div className="w-6/12 m-auto">
         <button
-          className="border border-black m-2 p-2 text-amber-50 bg-amber-700 rounded-lg"
+          className="border border-black m-2 p-2 text-amber-50 bg-amber-700 rounded-lg cursor-pointer"
           onClick={() => handleClearCart()}
         >
           clear cart
         </button>
 
         {cartItems.length === 0 && (
-          <h2>Your cart is empty !! Add items to checkout !!! </h2>
+          <h2 >Your cart is empty !! Add items to checkout !!! </h2>
         )}
         {cartItems.map((items, index) => (
           <ItemList key={index} data={items} />

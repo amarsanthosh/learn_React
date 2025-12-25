@@ -7,16 +7,19 @@ import About from "./components/About";
 import Contactus from "./components/Contactus";
 import { Outlet } from "react-router";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useContext, useState } from "react";
 import UserContext from "./utils/UserContext";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import StoreContext from "./utils/StoreContext";
+import Carttt from "./components/Carttt";
 
 const AppLayout = () => {
 
   const [username,setUsername] = useState();
+  const [addedItems,setAddedItems] = useState([]) ; 
   //authentication
   useEffect(() => {
     // Make an API call and send username and password
@@ -29,10 +32,12 @@ const AppLayout = () => {
   return (
     <Provider store={appStore}>
     <UserContext.Provider value={{ loggedInUser: username, setUsername }}> 
-    <div className="app">
+    <StoreContext.Provider value={{ addedItems, setAddedItems}}>
+        <div className="app">
       <Header />
       {<Outlet/>}
     </div>
+    </StoreContext.Provider>
     </UserContext.Provider>
     </Provider>
   );
@@ -73,8 +78,11 @@ const appRouter = createBrowserRouter([
     {
       path : "/cart",
       element : <Cart/>
+    },
+    {
+      path: "/carttt",
+      element : <Carttt/>
     }
-
 ]
 } 
 ])
